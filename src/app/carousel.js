@@ -1,0 +1,82 @@
+"use client";
+import Image from "next/image";
+import styles from "./page.module.css";
+import { slides } from "./carousel_data.js";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function Carousel() {
+  const [active_img, setActive_img] = useState(0);
+  function next() {
+    if (active_img < slides.length - 1) setActive_img(active_img + 1);
+    else setActive_img(0);
+  }
+  function back() {
+    if (active_img > 0) setActive_img(active_img - 1);
+    else setActive_img(slides.length - 1);
+  }
+  function set_img(index) {
+    setActive_img(index);
+  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [active_img]);
+
+  return (
+    <div className={styles.carousel}>
+      <div className={styles.control}>
+        {slides?.map((item, index) => {
+          if (index === active_img)
+            return (
+              <div key={item.alt} className={styles.img_main}>
+                <div>
+                  <h2>New Rewards</h2>
+                  <div>{item.discription}</div>
+                  <Link className={styles.link} href={item.link}>
+                    link
+                  </Link>
+                </div>
+                <Image
+                  className={`${styles.grid} ${styles.carousel_img}`}
+                  src={item.src}
+                  alt="img1"
+                  width={600}
+                  height={450}
+                  priority
+                  key={item.alt}
+                />
+              </div>
+            );
+        })}
+      </div>
+      <div className={styles.control}>
+        <button onClick={back}>&larr;</button>
+        {slides?.map((item, index) => {
+          return (
+            <div key={item.alt}>
+              <Image
+                className={
+                  index === active_img
+                    ? `${styles.carousel_nav} ${styles.carousel_active}`
+                    : `${styles.carousel_nav}`
+                }
+                src={item.src}
+                alt={item.alt}
+                width={60}
+                height={45}
+                priority
+                key={item.alt}
+                onClick={() => set_img(index)}
+              />
+            </div>
+          );
+        })}
+        <button onClick={next}>&rarr;</button>
+      </div>
+    </div>
+  );
+}
