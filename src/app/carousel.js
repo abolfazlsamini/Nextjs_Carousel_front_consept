@@ -28,33 +28,39 @@ export default function Carousel() {
 
   return (
     <div className={styles.carousel}>
-      <div className={styles.control}>
-        {slides?.map((item, index) => {
-          if (index === active_img)
-            return (
-              <div key={item.alt} className={styles.img_main}>
-                <div>
+      {slides?.map((item, index) => {
+        if (index === active_img)
+          return (
+            <>
+              <div className={styles.carousel_detail}>
+                <div className={styles.carousel_detail_inside}>
                   <h2>New Rewards</h2>
                   <div>{item.discription}</div>
                   <Link className={styles.link} href={item.link}>
                     link
                   </Link>
                 </div>
+              </div>
+
+              <div key={item.alt} className={styles.img_main}>
                 <Image
                   className={`${styles.grid} ${styles.carousel_img}`}
                   src={item.src}
                   alt="img1"
                   width={600}
-                  height={450}
+                  height={800}
                   priority
                   key={item.alt}
                 />
               </div>
-            );
-        })}
-      </div>
+            </>
+          );
+      })}
+
       <div className={styles.control}>
-        <button onClick={back}>&larr;</button>
+        <button className={styles.nav_button} onClick={back}>
+          &#10094;
+        </button>
         {slides?.map((item, index) => {
           return (
             <div key={item.alt}>
@@ -66,8 +72,8 @@ export default function Carousel() {
                 }
                 src={item.src}
                 alt={item.alt}
-                width={60}
-                height={45}
+                width={250}
+                height={200}
                 priority
                 key={item.alt}
                 onClick={() => set_img(index)}
@@ -75,7 +81,9 @@ export default function Carousel() {
             </div>
           );
         })}
-        <button onClick={next}>&rarr;</button>
+        <button className={styles.nav_button} onClick={next}>
+          &#10095;
+        </button>
       </div>
     </div>
   );
