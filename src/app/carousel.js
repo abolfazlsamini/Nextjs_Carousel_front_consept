@@ -20,7 +20,7 @@ export default function Carousel() {
   }
   useEffect(() => {
     const interval = setInterval(() => {
-      // next();
+      next();
     }, 3000);
 
     return () => clearInterval(interval);
