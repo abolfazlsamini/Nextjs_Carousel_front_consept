@@ -20,7 +20,7 @@ export default function Carousel() {
   }
   useEffect(() => {
     const interval = setInterval(() => {
-      next();
+      // next();
     }, 3000);
 
     return () => clearInterval(interval);
@@ -35,12 +35,14 @@ export default function Carousel() {
               <div
                 className={styles.carousel_detail}
                 style={{
-                  "background-image": `linear-gradient(to left, ${item.color}, transparent)`,
+                  backgroundImage: `linear-gradient(to left, ${item.color}, transparent)`,
                 }}
               >
                 <div className={styles.carousel_detail_inside}>
-                  <h2>New Rewards</h2>
-                  <div>{item.discription}</div>
+                  <h2 style={{ paddingBottom: "10px" }}>New Rewards</h2>
+                  <div style={{ paddingBottom: "10px" }}>
+                    {item.discription}
+                  </div>
                   <Link className={styles.link} href={item.link}>
                     link
                   </Link>
@@ -51,16 +53,14 @@ export default function Carousel() {
                 key={item.alt}
                 className={styles.img_main}
                 style={{
-                  "background-image": `linear-gradient(to right, ${item.color}, transparent)`,
+                  backgroundImage: `linear-gradient(to right, ${item.color}, transparent)`,
                 }}
               >
                 <Image
                   className={`${styles.grid} ${styles.carousel_img}`}
                   src={item.src}
                   alt="img1"
-                  fill={true}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                   priority
                   key={item.alt}
                 />
@@ -84,9 +84,7 @@ export default function Carousel() {
                 }
                 src={item.src}
                 alt={item.alt}
-                fill={true}
-                layout="fill"
-                objectFit="cover"
+                fill
                 priority
                 key={item.alt}
                 onClick={() => set_img(index)}
