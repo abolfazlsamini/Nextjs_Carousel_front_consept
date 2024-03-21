@@ -32,7 +32,12 @@ export default function Carousel() {
         if (index === active_img)
           return (
             <>
-              <div className={styles.carousel_detail}>
+              <div
+                className={styles.carousel_detail}
+                style={{
+                  "background-image": `linear-gradient(to left, ${item.color}, transparent)`,
+                }}
+              >
                 <div className={styles.carousel_detail_inside}>
                   <h2>New Rewards</h2>
                   <div>{item.discription}</div>
@@ -42,13 +47,20 @@ export default function Carousel() {
                 </div>
               </div>
 
-              <div key={item.alt} className={styles.img_main}>
+              <div
+                key={item.alt}
+                className={styles.img_main}
+                style={{
+                  "background-image": `linear-gradient(to right, ${item.color}, transparent)`,
+                }}
+              >
                 <Image
                   className={`${styles.grid} ${styles.carousel_img}`}
                   src={item.src}
                   alt="img1"
-                  width={600}
-                  height={800}
+                  fill={true}
+                  layout="fill"
+                  objectFit="cover"
                   priority
                   key={item.alt}
                 />
@@ -63,7 +75,7 @@ export default function Carousel() {
         </button>
         {slides?.map((item, index) => {
           return (
-            <div key={item.alt}>
+            <div key={item.alt} className={styles.nav_img_parent}>
               <Image
                 className={
                   index === active_img
@@ -72,8 +84,9 @@ export default function Carousel() {
                 }
                 src={item.src}
                 alt={item.alt}
-                width={250}
-                height={200}
+                fill={true}
+                layout="fill"
+                objectFit="cover"
                 priority
                 key={item.alt}
                 onClick={() => set_img(index)}
