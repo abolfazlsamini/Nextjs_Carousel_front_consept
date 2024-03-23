@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "Nextjs_Carousel_front_consept",
+  basePath: "/Nextjs_Carousel_front_consept",
   images: {
     remotePatterns: [
       {
