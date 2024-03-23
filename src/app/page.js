@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Image
-        src="Nextjs_Carousel_front_consept/next.svg"
+        src="/Nextjs_Carousel_front_consept/next.svg"
         alt="img1"
         fill
         priority
