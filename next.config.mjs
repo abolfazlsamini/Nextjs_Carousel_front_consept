@@ -10,7 +10,6 @@ const nextConfig = {
       },
     ],
   },
-  output: "export",
   basepath: "/Nextjs_Carousel_front_consept",
   images: {
     unoptimized: true,
