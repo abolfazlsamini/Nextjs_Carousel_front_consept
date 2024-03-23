@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/Nextjs_Carousel_front_consept",
   images: {
     remotePatterns: [
       {
@@ -9,9 +8,11 @@ const nextConfig = {
         hostname: "picsum.photos",
         port: "",
         pathname: "/seed/**",
+        disableStaticImages: true,
       },
     ],
   },
+  basePath: "/Nextjs_Carousel_front_consept",
 };
 
 export default nextConfig;
