@@ -7,7 +7,6 @@ import Carousel from "./carousel";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Image src="next.svg" alt="img1" fill priority key={item.alt} />
       <Carousel />
       <div className={styles.grid}>
         <a
@@ -19,7 +18,7 @@ export default function Home() {
           <h2>
             Docs <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <p>Find in-depth information about Next.js features and API..</p>
         </a>
       </div>
     </main>
