@@ -7,6 +7,13 @@ import Carousel from "./carousel";
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Image
+        src="Nextjs_Carousel_front_consept/next.svg"
+        alt="img1"
+        fill
+        priority
+        key={item.alt}
+      />
       <Carousel />
       <div className={styles.grid}>
         <a

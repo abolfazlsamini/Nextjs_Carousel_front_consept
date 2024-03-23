@@ -9,6 +9,7 @@ const nextConfig = {
         hostname: "picsum.photos",
         port: "",
         pathname: "/seed/**",
+        unoptimized: true,
       },
     ],
   },
