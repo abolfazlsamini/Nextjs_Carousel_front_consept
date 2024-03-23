@@ -1,6 +1,6 @@
 export const slides = [
   {
-    src: `1.jpg`,
+    src: `/Nextjs_Carousel_front_consept/1.jpg`,
     alt: "pic1",
     discription: "Get the Sphinx Tattoo Set for free.",
     link: "https://picsum.photos/seed/314{Math.random()}/1080/900",
@@ -8,7 +8,7 @@ export const slides = [
     key: "0",
   },
   {
-    src: `Nextjs_Carousel_front_consept/2.jpg`,
+    src: `/Nextjs_Carousel_front_consept/2.jpg`,
     alt: "pic2",
     discription: "Be ready to rock the stage with new Rewards!",
     link: "https://picsum.photos/seed/311{Math.random()}/1080/900",
