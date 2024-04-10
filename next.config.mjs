@@ -12,7 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  // basePath: "/Nextjs_Carousel_front_consept",
 };
 
 export default nextConfig;
