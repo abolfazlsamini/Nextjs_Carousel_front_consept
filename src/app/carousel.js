@@ -68,7 +68,6 @@ export default function Carousel() {
             </>
           );
       })}
-
       <div className={styles.control}>
         <button className={styles.nav_button} onClick={back}>
           &#10094;
