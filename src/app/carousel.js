@@ -18,6 +18,21 @@ export default function Carousel() {
   function set_img(index) {
     setActive_img(index);
   }
+  const [orientation, setOrientation] = useState("");
+  useEffect(() => {
+    // Function to update the orientation state
+    function updateOrientation() {
+      setOrientation(window.screen.orientation.type);
+    }
+    // Initial update of the orientation state
+    updateOrientation();
+    // Add an event listener for orientation change
+    window.addEventListener("orientationchange", updateOrientation);
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("orientationchange", updateOrientation);
+    };
+  }, [orientation]);
   useEffect(() => {
     const interval = setInterval(() => {
       next();
@@ -33,28 +48,18 @@ export default function Carousel() {
           return (
             <>
               <div
-                className={styles.carousel_detail}
-                style={{
-                  backgroundImage: `linear-gradient(to left, ${item.color}, transparent)`,
-                }}
-              >
-                <div className={styles.carousel_detail_inside}>
-                  <h2 style={{ paddingBottom: "10px" }}>New Rewards</h2>
-                  <div style={{ paddingBottom: "10px" }}>
-                    {item.discription}
-                  </div>
-                  <Link className={styles.link} href={item.link}>
-                    link
-                  </Link>
-                </div>
-              </div>
-
-              <div
                 key={item.alt}
                 className={styles.img_main}
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${item.color}, transparent)`,
-                }}
+                style={
+                  orientation === "landscape-primary" ||
+                  orientation === "landscape-secondary"
+                    ? {
+                        backgroundImage: `linear-gradient(to right, ${item.color}, transparent)`,
+                      }
+                    : {
+                        backgroundImage: `linear-gradient(to top, ${item.color}, transparent)`,
+                      }
+                }
               >
                 <Image
                   className={`${styles.grid} ${styles.carousel_img}`}
@@ -64,6 +69,35 @@ export default function Carousel() {
                   priority
                   key={item.alt}
                 />
+              </div>
+              <div
+                className={styles.carousel_detail}
+                style={
+                  orientation === "landscape-primary" ||
+                  orientation === "landscape-secondary"
+                    ? {
+                        backgroundImage: `linear-gradient(to left, ${item.color}, transparent)`,
+                      }
+                    : {
+                        backgroundImage: `linear-gradient(to bottom, ${item.color}, transparent)`,
+                      }
+                }
+              >
+                <div className={styles.carousel_detail_inside}>
+                  <h2 className={styles.h2} style={{ paddingBottom: "10px" }}>
+                    Basic Carousel
+                  </h2>
+                  <div style={{ paddingBottom: "10px" }}>
+                    {item.discription}
+                  </div>
+                  <Link
+                    className={styles.link}
+                    href={item.link}
+                    target="_blank"
+                  >
+                    LINK
+                  </Link>
+                </div>
               </div>
             </>
           );

@@ -3,7 +3,7 @@
   align-items: center;
   background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
   border: 0;
-  border-radius: 10px;
+  border-radius: 20px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
@@ -12,7 +12,7 @@
   font-family: "Codec cold", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  height: 54px;
+  height: 44px;
   justify-content: center;
   letter-spacing: 0.4px;
   line-height: 1;
@@ -26,18 +26,9 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.link:active {
-  outline: 0;
-}
+
 .link:hover {
-  outline: 0;
-}
-.link span {
-  transition: all 200ms;
-}
-.link:hover span {
-  transform: scale(0.9);
-  opacity: 0.75;
+  box-shadow: #007bff;
 }
 @media screen and (max-width: 991px) {
   .link {
@@ -58,6 +49,7 @@
   height: 45vw;
   justify-content: left;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
 }
 .carousel_img {
@@ -85,7 +77,9 @@
   width: 300px;
   max-width: 35vh;
 }
-
+.h2 {
+  margin-top: "10px";
+}
 .carousel_nav {
   cursor: pointer;
   border-radius: 10px;
@@ -178,19 +172,71 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
+  .link {
+    align-items: center;
+    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: 0;
+    border-radius: 25px;
+    color: #fff;
+    width: 120px;
+    display: block;
+    cursor: pointer;
+    padding-top: 15px;
+    font-family: "Codec cold", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
   }
-
+  .carousel {
+    background-image: none;
+    display: block;
+    height: 180vw;
+  }
+  .img_main {
+    height: 40%;
+  }
+  .control {
+    height: 30%;
+  }
+  .carousel_detail {
+    display: block;
+    width: 100%;
+    height: 30%;
+  }
+  .nav_button {
+    display: none;
+  }
+  .nav_img_parent {
+    width: 180px;
+    margin-right: 5px;
+    height: 80px;
+  }
+  .carousel_detail_inside {
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+  }
+  .carousel_detail_text {
+    padding: 50px;
+  }
+  .carousel_detail {
+    padding-left: 0px;
+  }
+  .h2 {
+    margin-top: 0px;
+  }
   .card {
     padding: 1rem 2.5rem;
   }
 
   .card h2 {
     margin-bottom: 0.5rem;
+  }
+  .grid {
+    grid-template-columns: auto;
   }
 }
 
